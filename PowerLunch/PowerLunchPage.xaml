@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:PowerLunch"
+	x:Class="PowerLunch.PowerLunchPage"
+	BackgroundColor="Black">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="0"
+			Text="Welcome to Xamarin.Forms, Power Lunchers!"
+			TextColor="Navy"
+			FontSize="Medium"
+			FontAttributes="Bold"
+			HorizontalTextAlignment="Center"
+			BackgroundColor="Aqua"
+			VerticalOptions="Center"
+			HorizontalOptions="Center"
+			Rotation="15" />
+		<Button
+			x:Name="ClickBaitButton"
+			Grid.Row="1"
+			Grid.Column="0"
+			Clicked="ClickBaitButtonPress"
+			Text="Clickeroo!" />
+		<Label
+			x:Name="ClickCountLabel"
+			Text="{Binding ClickCountText}"
+			Grid.Row="2"
+			Grid.Column="0"
+			Rotation="{Binding ClickCountRotation}"
+			BackgroundColor="White"
+			HorizontalTextAlignment="Center"
+			HorizontalOptions="Center"
+			VerticalOptions="Center" />
+	</Grid>
+</ContentPage>
