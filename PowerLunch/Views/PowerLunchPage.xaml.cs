@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel;
+using PowerLunch.ViewModels;
 using Xamarin.Forms;
 
-namespace PowerLunch
+namespace PowerLunch.Views
 {
 	public partial class PowerLunchPage : ContentPage
 	{

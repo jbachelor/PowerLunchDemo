@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using PowerLunch.Views;
 
 namespace PowerLunch
 {
@@ -8,7 +9,7 @@ namespace PowerLunch
 		{
 			InitializeComponent();
 
-			MainPage = new PowerLunchPage();
+			MainPage = new PowerLunchPage(); // This is where we set the opening view on app launch.
 		}
 
 		protected override void OnStart()
