@@ -1,15 +1,20 @@
-﻿using Xamarin.Forms;
-using PowerLunch.Views;
+﻿using PowerLunch.Views;
+using Prism.Unity;
 
 namespace PowerLunch
 {
-	public partial class App : Application
+	public partial class App : PrismApplication
 	{
-		public App()
+		protected override void OnInitialized()
 		{
 			InitializeComponent();
 
-			MainPage = new PowerLunchPage(); // This is where we set the opening view on app launch.
+			NavigationService.NavigateAsync(nameof(PowerLunchPage));
+		}
+
+		protected override void RegisterTypes()
+		{
+			Container.RegisterTypeForNavigation<PowerLunchPage>();
 		}
 
 		protected override void OnStart()
