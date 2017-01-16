@@ -95,11 +95,11 @@ namespace PowerLunch.ViewModels
 			var changed = PropertyChanged;
 			if (changed != null)
 			{
-				Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.OnPropertyChanged event fired for {propertyName}");
+				//Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.OnPropertyChanged event fired for {propertyName}");
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 			else {
-				Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.OnPropertyChanged was called, but PropertyChanged handler was null.");
+				//Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.OnPropertyChanged was called, but PropertyChanged handler was null.");
 			}
 		}
 
