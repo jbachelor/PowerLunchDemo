@@ -3,6 +3,8 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:local="clr-namespace:PowerLunch"
+	xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+	prism:ViewModelLocator.AutowireViewModel="True"
 	x:Class="PowerLunch.Views.PowerLunchPage"
 	BackgroundColor="Black">
 	<Grid>
@@ -32,8 +34,8 @@
 			x:Name="ClickBaitButton"
 			Grid.Row="1"
 			Grid.Column="0"
-			Clicked="ClickBaitButtonPress"
-			Text="Clickeroo!" />
+			Text="Clickeroo!"
+			Command="{Binding ClickerooCommand}" />
 		<Label
 			x:Name="ClickCountLabel"
 			Text="{Binding ClickCountText}"
