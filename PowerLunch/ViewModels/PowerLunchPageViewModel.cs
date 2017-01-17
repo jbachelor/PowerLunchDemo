@@ -1,11 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using Prism.Commands;
+using Prism.Mvvm;
 
 namespace PowerLunch.ViewModels
 {
-	class PowerLunchPageViewModel : INotifyPropertyChanged
+	class PowerLunchPageViewModel : BindableBase
 	{
+		public DelegateCommand ClickerooCommand { get; set; }
+
 		/// <summary>
 		/// The number of times the button has been pressed.
 		/// </summary>
@@ -17,6 +21,9 @@ namespace PowerLunch.ViewModels
 		public PowerLunchPageViewModel()
 		{
 			Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.ctor -- Constructing {nameof(PowerLunchPageViewModel)}");
+
+			ClickerooCommand = new DelegateCommand(ClickBaitButtonHandler);
+
 			ClickCountText = "0 Clicks (snooooze...)";
 		}
 
@@ -33,12 +40,7 @@ namespace PowerLunch.ViewModels
 			get { return _clickCountText; }
 			set
 			{
-				if (value != _clickCountText)
-				{
-					_clickCountText = value;
-					OnPropertyChanged(nameof(ClickCountText));
-				}
-
+				SetProperty(ref _clickCountText, value);
 			}
 		}
 
@@ -61,8 +63,7 @@ namespace PowerLunch.ViewModels
 					{
 						value = 0;
 					}
-					_clickCountRotation = value;
-					OnPropertyChanged(nameof(ClickCountRotation));
+					SetProperty(ref _clickCountRotation, value);
 					Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.ClickCountRotation:  {_clickCountRotation}");
 				}
 			}
@@ -79,30 +80,5 @@ namespace PowerLunch.ViewModels
 			ClickCountRotation += 10;
 			ClickCountText = $"{clickCount} clicks!";
 		}
-
-		#region INotifyPropertyChanged
-
-		public event PropertyChangedEventHandler PropertyChanged;
-		/// <summary>
-		/// Call OnPropertyChanged on any ViewModel property that is exposed in the View (PowerLunchPage.xaml).
-		/// This is the foundation of "Data Binding", and allows the view to always stay in sync with the 
-		/// value of it's properties, without any need to "refresh" the view to reflect updated content.
-		/// It's pretty rad.
-		/// </summary>
-		/// <param name="propertyName">Name of property that changed.</param>
-		protected virtual void OnPropertyChanged(string propertyName)
-		{
-			var changed = PropertyChanged;
-			if (changed != null)
-			{
-				//Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.OnPropertyChanged event fired for {propertyName}");
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-			else {
-				//Debug.WriteLine($"{nameof(PowerLunchPageViewModel)}.OnPropertyChanged was called, but PropertyChanged handler was null.");
-			}
-		}
-
-		#endregion INotifyPropertyChanged
 	}
 }
