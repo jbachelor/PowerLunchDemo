@@ -69,11 +69,6 @@ namespace PowerLunch.ViewModels
 			}
 		}
 
-		/// <summary>
-		/// This button click handler is fired off from the view's code-behind file (PowerLunchPage.xaml.cs).
-		/// A stricter MVVM implementation would probably use a commanding pattern:
-		/// https://blog.xamarin.com/simplifying-events-with-commanding/
-		/// </summary>
 		internal void ClickBaitButtonHandler()
 		{
 			clickCount++;
